@@ -2,6 +2,7 @@ class MainController < UIViewController
 
   def viewDidLoad
     super
+    self.title = 'Title Here'
   end
 end
 

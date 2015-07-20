@@ -4,13 +4,21 @@ class MainController < UIViewController
     super
     self.title = 'Title Here'
     leftButton = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemAction, 
-                                                                   target: self, action: nav_left_btn)
-    rightButton = UIBarbuttonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemRefresh,
-                                                                    target: self, action: nav_right_btn)
+                                                                   target: self, action: :nav_left_btn)
+    rightButton = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemRefresh,
+                                                                    target: self, action: :nav_right_btn)
     self.navigationItem.tap do |nav|
       nav.leftBarButtonItem = leftButton
       nav.rightBarButtonItem = rightButton
     end
+  end
+
+  def nav_left_btn
+    puts 'clicked left button'
+  end
+
+  def nav_right_btn
+    puts 'clicked right button'
   end
 end
 

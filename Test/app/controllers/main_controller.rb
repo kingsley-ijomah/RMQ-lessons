@@ -10,11 +10,11 @@ class MainController < UIViewController
     self.navigationItem.tap do |nav|
       nav.leftBarButtonItem = leftButton
       nav.rightBarButtonItem = rightButton
-    end
+    end 
   end
 
   def nav_left_btn
-    puts 'clicked left button'
+
   end
 
   def nav_right_btn

@@ -14,7 +14,7 @@ class MainController < UIViewController
   end
 
   def nav_left_btn
-
+    rmq.view_controller.navigationController.pushViewController(UserController.new, animated: true)
   end
 
   def nav_right_btn

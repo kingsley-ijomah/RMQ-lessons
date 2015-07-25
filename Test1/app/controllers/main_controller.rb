@@ -2,15 +2,19 @@ class MainController < UIViewController
   def viewDidLoad
     super
     self.view.backgroundColor = UIColor.blueColor
+    set_nav
+  end
+
+  def set_nav
     self.title = 'Demo'
     self.navigationItem.tap do |nav|
       nav.leftBarButtonItem = create_bar_button(UIBarButtonSystemItemSearch, :left_bar_btn)
-      nav.rightBarButtonItem = create_bar_button(UIBarButtonSystemItemEdit, :right_bar_btn)
+      nav.rightBarButtonItem = create_bar_button(UIBarButtonSystemItemAdd, :right_bar_btn)
     end
   end
 
   def create_bar_button(type, action)
-     UIBarButtonItem.alloc.initWithBarButtonSystemItem(type, target: self, action: action)
+    UIBarButtonItem.alloc.initWithBarButtonSystemItem(type, target: self, action: action)
   end
 
   def left_bar_btn
@@ -18,6 +22,6 @@ class MainController < UIViewController
   end
 
   def right_bar_btn
-    puts 'right bar button'
+    self.navigationController.pushViewController(UIViewController.new, animated: false)
   end
 end

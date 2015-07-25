@@ -1,10 +1,7 @@
 class AppDelegate
   def application(app, didFinishLaunchingWithOptions: launchOptions)
-    @rect = UIScreen.mainScreen.bounds
-    puts @rect.size
-    puts @rect.origin
-    puts @rect.size.width
-    puts @rect.origin.y 
+    @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
+    @window.makeKeyAndVisible
     true
   end
 end

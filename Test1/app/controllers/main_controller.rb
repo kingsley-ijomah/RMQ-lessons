@@ -4,7 +4,11 @@ class MainController < UIViewController
     self.view.backgroundColor = UIColor.whiteColor
     set_nav
 
-    self.view.addSubview(button)
+    label = UILabel.alloc.initWithFrame(CGRectZero)
+    label.text = "Main Controller"
+    label.sizeToFit
+    label.center = [view.frame.size.width / 2, view.frame.size.height / 2]
+    self.view.addSubview(label)
   end
 
   def set_nav

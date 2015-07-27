@@ -6,6 +6,7 @@ class MainController < UIViewController
 
     label = UILabel.alloc.initWithFrame(CGRectZero)
     label.text = "Main Controller"
+    label.font = UIFont.systemFontOfSize(32)
     label.sizeToFit
     label.center = [view.frame.size.width / 2, view.frame.size.height / 2]
     self.view.addSubview(label)
@@ -28,6 +29,6 @@ class MainController < UIViewController
   end
 
   def right_bar_btn
-    self.navigationController.pushViewController(UIViewController.new, animated: false)
+    self.navigationController.pushViewController(SecondaryController.new, animated: true)
   end
 end

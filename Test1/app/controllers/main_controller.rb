@@ -4,19 +4,7 @@ class MainController < UIViewController
     self.view.backgroundColor = UIColor.whiteColor
     set_nav
 
-    button = UIButton.buttonWithType(UIButtonTypeSystem)
-    button.setTitle('Testing..', forState:UIControlStateNormal)
-    button.frame = CGRect.new([centerX, centerY], button.frame.size)
-    button.sizeToFit
     self.view.addSubview(button)
-  end
-
-  def centerY
-    CGRectGetHeight(UIScreen.mainScreen.bounds) / 2
-  end
-
-  def centerX
-    CGRectGetWidth(UIScreen.mainScreen.bounds) / 2
   end
 
   def set_nav

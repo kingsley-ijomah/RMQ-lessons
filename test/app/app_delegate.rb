@@ -1,15 +1,15 @@
 class AppDelegate
   def application(application, didFinishLaunchingWithOptions:launchOptions)
-    rootViewController = UIViewController.alloc.init
-    rootViewController.title = 'test'
-    rootViewController.view.backgroundColor = UIColor.whiteColor
-
-    navigationController = UINavigationController.alloc.initWithRootViewController(rootViewController)
-
     @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
-    @window.rootViewController = navigationController
     @window.makeKeyAndVisible
 
+    tabBarController = UITabBarController.alloc.init
+    tabBarController.viewControllers = [
+      UINavigationController.alloc.initWithRootViewController(MainController.alloc.init),
+      UINavigationController.alloc.initWithRootViewController(FavoritesController.alloc.init),
+      UINavigationController.alloc.initWithRootViewController(DownloadsController.alloc.init)]
+
+    @window.rootViewController = tabBarController
     true
   end
 end

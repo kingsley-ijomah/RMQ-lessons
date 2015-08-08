@@ -1,6 +1,6 @@
 class AppDelegate
   def application(application, didFinishLaunchingWithOptions:launchOptions)
-    rootViewController = UIViewController.alloc.init
+    rootViewController = MainController.alloc.init
     rootViewController.title = 'table_test'
     rootViewController.view.backgroundColor = UIColor.whiteColor
 

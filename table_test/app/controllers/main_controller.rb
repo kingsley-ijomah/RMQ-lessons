@@ -23,5 +23,6 @@ class MainController < UITableViewController
   end
 
   def tableView(tableView, accessoryButtonTappedForRowWithIndexPath:indexPath)
+    alphabets = @data[indexPath.row]
   end
 end

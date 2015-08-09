@@ -21,4 +21,7 @@ class MainController < UITableViewController
     cell.textLabel.text = @data[indexPath.row]
     cell
   end
+
+  def tableView(tableView, accessoryButtonTappedForRowWithIndexPath:indexPath)
+  end
 end

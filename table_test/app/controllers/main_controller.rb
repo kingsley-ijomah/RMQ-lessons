@@ -20,8 +20,10 @@ class MainController < UITableViewController
 
   def tableView(tableView, didSelectRowAtIndexPath:indexPath)
     tableView.deselectRowAtIndexPath(indexPath, animated:true)
-    controller = UIViewController.alloc.init
-    controller.view.backgroundColor = UIColor.whiteColor
+    controller = UIViewController.alloc.init.tap do |c|
+      c.view.backgroundColor = UIColor.whiteColor
+      c.title = @data[indexPath.row]
+    end
     self.navigationController.pushViewController(controller, animated:true)
   end
 end

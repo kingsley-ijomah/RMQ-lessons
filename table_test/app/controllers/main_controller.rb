@@ -12,15 +12,14 @@ class MainController < UITableViewController
   CELLID = 'CellIdentifier'
   def tableView(tableView, cellForRowAtIndexPath:indexPath)
     cell = tableView.dequeueReusableCellWithIdentifier(CELLID) || begin
-      cell = UITableViewCell.alloc.initWithStyle(UITableViewCellStyleSubtitle, reuseIdentifier:CELLID)
-      cell
+      UITableViewCell.alloc.initWithStyle(UITableViewCellStyleSubtitle, reuseIdentifier:CELLID)
     end
     cell.textLabel.text = @data[indexPath.row]
-    cell.detailTextLabel.text = 'Hello world!'
     cell
   end
 
-  def tableView(tableView, accessoryButtonTappedForRowWithIndexPath:indexPath)
-    alphabets = @data[indexPath.row]
+  def tableView(tableView, didSelectRowAtIndexPath:indexPath)
+    tableView.deselectRowAtIndexPath(indexPath, animated:true)
+    self.navigationController.pushViewController(UIViewController.alloc.init, animated:true)
   end
 end

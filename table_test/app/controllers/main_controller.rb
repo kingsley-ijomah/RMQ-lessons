@@ -12,13 +12,11 @@ class MainController < UITableViewController
   CELLID = 'CellIdentifier'
   def tableView(tableView, cellForRowAtIndexPath:indexPath)
     cell = tableView.dequeueReusableCellWithIdentifier(CELLID) || begin
-      cell = UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier:CELLID)
-      cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton
-      cell.selectionStyle = UITableViewCellSelectionStyleNone
+      cell = UITableViewCell.alloc.initWithStyle(UITableViewCellStyleSubtitle, reuseIdentifier:CELLID)
       cell
     end
-
     cell.textLabel.text = @data[indexPath.row]
+    cell.detailTextLabel.text = 'Hello world!'
     cell
   end
 

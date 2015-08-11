@@ -1,7 +1,7 @@
 class MainController < UITableViewController
   def viewDidLoad
     super
-    view.dataSource = view.delegate = self
+    # view.dataSource = view.delegate = self
     @data = ("A".."Z").to_a
   end
 

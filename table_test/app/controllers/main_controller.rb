@@ -20,10 +20,6 @@ class MainController < UITableViewController
 
   def tableView(tableView, didSelectRowAtIndexPath:indexPath)
     tableView.deselectRowAtIndexPath(indexPath, animated:true)
-    controller = SecondTableController.alloc.init.tap do |c|
-      c.view.backgroundColor = UIColor.whiteColor
-      c.title = @data[indexPath.row]
-    end
-    self.navigationController.pushViewController(controller, animated:true)
+    self.navigationController.pushViewController(SecondTableController.alloc.init, animated:true)
   end
 end

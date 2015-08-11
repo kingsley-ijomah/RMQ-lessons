@@ -5,8 +5,10 @@ class SecondTableController < UIViewController
     self.title = 'Second Table'
     
     @data = ('A'..'Z').to_a
-    @table = UITableView.alloc.initWithFrame(self.view.bounds)
-    @table.dataSource = @table.delegate = self
+    @table = UITableView.alloc.initWithFrame(self.view.bounds).tap do |t|
+      t.dataSource = self
+      t.delegate = self
+    end
     self.view.addSubview(@table)
   end
 

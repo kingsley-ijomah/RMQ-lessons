@@ -20,7 +20,7 @@ class MainController < UITableViewController
 
   def tableView(tableView, didSelectRowAtIndexPath:indexPath)
     tableView.deselectRowAtIndexPath(indexPath, animated:true)
-    controller = UIViewController.alloc.init.tap do |c|
+    controller = SecondTableController.alloc.init.tap do |c|
       c.view.backgroundColor = UIColor.whiteColor
       c.title = @data[indexPath.row]
     end

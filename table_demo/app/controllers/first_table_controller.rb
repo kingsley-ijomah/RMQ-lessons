@@ -5,8 +5,4 @@ class FirstTableController < UITableViewController
     end
     self
   end
-
-  def viewDidLoad
-    super
-  end
 end

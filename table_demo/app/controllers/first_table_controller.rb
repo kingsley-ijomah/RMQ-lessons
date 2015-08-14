@@ -21,4 +21,8 @@ class FirstTableController < UITableViewController
     cell.textLabel.text = @data[indexPath.row]
     cell
   end
+
+  def sections
+    @data.keys.sort
+  end
 end

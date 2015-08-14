@@ -26,7 +26,16 @@ class FirstTableController < UITableViewController
     @data.keys.sort
   end
 
-  def rows_for_section(index_path)
-    @data[self.sections[index_path]]
+  def rows_for_section(section_index)
+    @data[self.sections[section_index]]
+  end
+
+  def rows_for_index_path(index_path)
+    rows_for_section(index_path.section)[index_path.row]
   end
 end
+
+
+
+
+

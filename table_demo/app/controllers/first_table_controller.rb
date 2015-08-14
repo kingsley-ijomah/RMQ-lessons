@@ -30,7 +30,7 @@ class FirstTableController < UITableViewController
     @data[self.sections[section_index]]
   end
 
-  def rows_for_index_path(index_path)
+  def row_for_index_path(index_path)
     rows_for_section(index_path.section)[index_path.row]
   end
 end

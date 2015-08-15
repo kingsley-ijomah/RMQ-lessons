@@ -37,7 +37,11 @@ class FirstTableController < UITableViewController
     self.sections[section]
   end
 
+  def sectionIndexTitlesForTableView(tableView)
+    sections
+  end
 
+    
 
   def sections
     @data.keys.sort

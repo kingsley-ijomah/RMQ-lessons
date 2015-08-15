@@ -8,7 +8,14 @@ class FirstTableController < UITableViewController
 
   def viewDidLoad
     super
-    @data = ('A'..'Z').to_a
+    @data = {}
+    ('A'..'Z').to_a.each do |letter|
+      @data[letter] = []
+      5.times do 
+        random_string = (0..4).map{65.+(rand(25)).chr}.join
+        @data[letter] << letter + random_string
+      end
+    end
   end
 
   def tableView(tableView, numberOfRowsInSection:section)
@@ -18,13 +25,19 @@ class FirstTableController < UITableViewController
   CELLID = 'CellIdentifier'
   def tableView(tableView, cellForRowAtIndexPath:indexPath)
     cell = UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier:CELLID)
-    cell.textLabel.text = @data[indexPath.row]
+    cell.textLabel.text = row_for_index_path(indexPath)
     cell
   end
 
   def numberOfSectionsInTableView(tableView)
     self.sections.count
   end
+
+  def tableView(tableView, titleForHeaderInSection:section)
+    self.sections[section]
+  end
+
+
 
   def sections
     @data.keys.sort

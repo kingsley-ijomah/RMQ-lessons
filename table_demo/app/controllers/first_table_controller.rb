@@ -22,12 +22,16 @@ class FirstTableController < UITableViewController
     cell
   end
 
+  def numberOfSectionsInTableView(tableView)
+    self.sections.count
+  end
+
   def sections
     @data.keys.sort
   end
 
-  def rows_for_section(section)
-    @data[self.sections[section]]
+  def rows_for_section(section_index)
+    @data[self.sections[section_index]]
   end
 
   def row_for_index_path(index_path)

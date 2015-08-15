@@ -12,7 +12,7 @@ class FirstTableController < UITableViewController
   end
 
   def tableView(tableView, numberOfRowsInSection:section)
-    @data.count
+    self.rows_for_section(section).count
   end
 
   CELLID = 'CellIdentifier'

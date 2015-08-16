@@ -41,7 +41,8 @@ class FirstTableController < UITableViewController
     sections
   end
 
-    
+  def tableView(tableView, editingStyleForRowAtIndexPath:indexPath)
+  end
 
   def sections
     @data.keys.sort

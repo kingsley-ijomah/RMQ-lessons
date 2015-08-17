@@ -1,0 +1,3 @@
+class SecondTableController < UIViewController
+
+end

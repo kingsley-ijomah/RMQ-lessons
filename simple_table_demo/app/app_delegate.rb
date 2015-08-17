@@ -1,13 +1,16 @@
 class AppDelegate
   def application(application, didFinishLaunchingWithOptions:launchOptions)
-    rootViewController = UIViewController.alloc.init
-    rootViewController.title = 'simple_table_demo'
-    rootViewController.view.backgroundColor = UIColor.whiteColor
+    firstTableController = FirstTableController.alloc.initWithFrame(UITableViewStylePlain)
+    secondTableController = SecondTableController.alloc.init
 
-    navigationController = UINavigationController.alloc.initWithRootViewController(rootViewController)
+    firstTableNav = UINavigationController.alloc.initWithRootViewController(firstTableController)
+    secondTableNav = UINavigationController.alloc.initWithRootViewController(secondTableController)
+
+    navBar = UINavigationBarController.alloc.init
+    navBar.viewControllers[firstTableController, secondTableController]
 
     @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
-    @window.rootViewController = navigationController
+    @window.rootViewController = navBar
     @window.makeKeyAndVisible
 
     true

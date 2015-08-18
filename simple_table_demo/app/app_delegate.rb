@@ -7,7 +7,7 @@ class AppDelegate
     secondTableNav = UINavigationController.alloc.initWithRootViewController(secondTableController)
 
     navBar = UITabBarController.alloc.init
-    navBar.viewControllers = [firstTableController, secondTableController]
+    navBar.viewControllers = [firstTableNav, secondTableNav]
 
     @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
     @window.rootViewController = navBar

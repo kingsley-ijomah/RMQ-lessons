@@ -15,9 +15,12 @@ class FirstTableController < UITableViewController
     @data.count
   end
 
+  CELLID = 'CELLid'
   def tableView(tableView, cellForRowAtIndexPath:indexPath)
-    cell = UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier:nil).tap do |c|
-      c.textLabel.text = @data[indexPath.row]
+    cell = tableView.dequeueReusableCellWithIdentifier(CELLID) || begin
+      UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier:CELLID)
     end
+    cell.textLabel.text = @data[indexPath.row]
+    cell
   end
 end

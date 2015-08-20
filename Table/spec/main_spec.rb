@@ -1,4 +1,4 @@
-describe "Application 'TablePlain'" do
+describe "Application 'Table'" do
   before do
     @app = UIApplication.sharedApplication
   end

@@ -14,6 +14,12 @@ class ContactsController < UITableViewController
       UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier:CELLID)
     end
     cell.textLabel.text = @data[indexPath.row]
+    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton
     cell
+  end
+
+  def tableView(tableView, accessoryButtonTappedForRowWithIndexPath:indexPath)
+    detailsController = DetailsController.alloc.initWithLetter(@data[indexPath.row])
+    self.navigationController.pushViewController(detailsController, animated:true)
   end
 end

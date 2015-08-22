@@ -42,6 +42,7 @@ class FirstTableController < UITableViewController
   end
 
   def tableView(tableView, editingStyleForRowAtIndexPath:indexPath)
+    UITableViewCellEditingStyleDelete
   end
 
   def sections

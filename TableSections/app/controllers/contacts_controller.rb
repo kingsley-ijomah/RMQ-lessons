@@ -1,10 +1,15 @@
 class ContactsController < UITableViewController
   def viewDidLoad
     super
-    @data = {
-      'A' => ['Anthony', 'Angela'],
-      'B' => ['Beyonce', 'Barry']
-    }
+    # @data = ('A'..'Z').to_a
+    @data = {}
+    ('A'..'Z').to_a.each do |letter|
+      @data[letter] = []
+      5.times do
+        random_string = (0...4).map { 65.+(rand(25)).chr }.join
+        @data[letter] << letter + random_string
+      end
+    end
   end
 
   def sections
@@ -19,6 +24,10 @@ class ContactsController < UITableViewController
     rows_for_section(index_path.section)[index_path.row]
   end
 
+  def tableView(tableView, titleForHeaderInSection:section)
+    sections[section]
+  end
+
   def numberOfSectionsInTableView(tableView)
     sections.count
   end
@@ -30,9 +39,9 @@ class ContactsController < UITableViewController
   CELLID = 'CELLid'
   def tableView(tableView, cellForRowAtIndexPath:indexPath)
     cell = tableView.dequeueReusableCellWithIdentifier(CELLID) || begin
-      UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier:CELLID)
+    UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier:CELLID)
     end
-    cell.textLabel.text = self.row_for_index_path(indexPath)
+    cell.textLabel.text = row_for_index_path(indexPath)
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton
     cell
   end

@@ -3,6 +3,7 @@ class ElementsController < UIViewController
     super
     add_label
     add_textfield
+    add_slider
   end
 
   def add_label
@@ -26,4 +27,25 @@ class ElementsController < UIViewController
     end
     self.view.addSubview(textfield)
   end
+
+  def add_slider
+    slider = UISlider.alloc.init.tap do |s|
+      s.frame = [[60, 250], [200, 35]]
+      s.minimumValue = 0
+      s.maximumValue = 1000
+      s.value = s.maximumValue / 2
+      s.addTarget(self, action:'slideChange', forControlEvents:UIControlEventValueChanged)
+    end
+    view.addSubview(slider)
+  end
+
+  def slideChange
+    puts 'clicked'
+  end
 end
+
+
+
+
+
+

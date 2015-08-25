@@ -4,6 +4,7 @@ class ElementsController < UIViewController
     add_label
     add_textfield
     add_slider
+    add_button
   end
 
   def add_label
@@ -41,6 +42,20 @@ class ElementsController < UIViewController
 
   def slideChange
     puts 'clicked'
+  end
+
+  def add_button
+    button = UIButton.buttonWithType(UIButtonTypeRoundedRect).tap do |b|
+      b.frame = [[70, 300], [200, 35]]
+      b.setTitle("Click Here", forState:UIControlStateNormal)
+      b.setTitle("You have clicked here", forState:UIControlStateHighlighted)
+      b.addTarget(self, action:'buttonIsPressed', forControlEvents:UIControlEventTouchDown)
+    end
+    self.view.addSubview(button)
+  end
+
+  def buttonIsPressed
+    puts 'pressed'
   end
 end
 

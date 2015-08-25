@@ -8,6 +8,7 @@ class ElementsController < UIViewController
     add_button
     add_picker_view
     add_activity_indicator
+    add_image_view
   end
 
   def add_label
@@ -93,6 +94,13 @@ class ElementsController < UIViewController
       a.startAnimating
     end
     view.addSubview(activity)
+  end
+
+  def add_image_view
+    image = UIImageView.alloc.initWithImage(UIImage.imageNamed('insect.jpg')).tap do |img|
+      img.center = [300, 400]
+    end
+    self.view.addSubview(image)
   end
 
 

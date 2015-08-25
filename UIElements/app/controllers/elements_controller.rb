@@ -7,6 +7,7 @@ class ElementsController < UIViewController
     add_slider
     add_button
     add_picker_view
+    add_activity_indicator
   end
 
   def add_label
@@ -85,6 +86,15 @@ class ElementsController < UIViewController
   def pickerView(pickerView, didSelectRow:row, inComponent:component)
     puts "selected #{@countryNames[row]}"
   end
+
+  def add_activity_indicator
+    activity = UIActivityIndicatorView.alloc.initWithActivityIndicatorStyle(UIActivityIndicatorViewStyleGray).tap do |a|
+      a.center = [60, 400]
+      a.startAnimating
+    end
+    view.addSubview(activity)
+  end
+
 
 end
 

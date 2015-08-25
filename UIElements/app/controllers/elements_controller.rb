@@ -1,10 +1,12 @@
 class ElementsController < UIViewController
   def viewDidLoad
     super
+    @countryNames = ['United States', 'France', 'India', 'China', 'Russia']
     add_label
     add_textfield
     add_slider
     add_button
+    add_picker_view
   end
 
   def add_label
@@ -57,6 +59,33 @@ class ElementsController < UIViewController
   def buttonIsPressed
     puts 'pressed'
   end
+
+  def add_picker_view
+    picker = UIPickerView.alloc.init.tap do |p|
+      p.frame = [[80, 400], [220, 180]]
+      p.showsSelectionIndicator = true
+      p.dataSource = self
+      p.delegate = self
+    end
+    self.view.addSubview(picker)
+  end
+
+  def numberOfComponentsInPickerView(pickerView)
+    1
+  end
+
+  def pickerView(pickerView, numberOfRowsInComponent:component)
+    @countryNames.count
+  end
+
+  def pickerView(pickerView, titleForRow:row, forComponent:component)
+    @countryNames[row]
+  end
+
+  def pickerView(pickerView, didSelectRow:row, inComponent:component)
+    puts "selected #{@countryNames[row]}"
+  end
+
 end
 
 

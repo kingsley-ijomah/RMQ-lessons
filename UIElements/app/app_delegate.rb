@@ -1,7 +1,7 @@
 class AppDelegate
   def application(application, didFinishLaunchingWithOptions:launchOptions)
-    rootViewController = ElementsController.alloc.init
-    rootViewController.title = 'UI Elements'
+    rootViewController = RootViewController.alloc.init
+    rootViewController.title = 'UIElements'
     rootViewController.view.backgroundColor = UIColor.whiteColor
 
     navigationController = UINavigationController.alloc.initWithRootViewController(rootViewController)

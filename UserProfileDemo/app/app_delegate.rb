@@ -1,6 +1,6 @@
 class AppDelegate
   def application(application, didFinishLaunchingWithOptions:launchOptions)
-    rootViewController = UserController.alloc.initWithUser(User.new({ id:'123', name:'Kingsley', email:'kingsley@example.com'}))
+    rootViewController = UserController.alloc.initWithUser(User.new(id:'123', name:'Kingsley', email:'kingsley@example.com'))
     rootViewController.title = 'UserProfileDemo'
     rootViewController.view.backgroundColor = UIColor.whiteColor
 

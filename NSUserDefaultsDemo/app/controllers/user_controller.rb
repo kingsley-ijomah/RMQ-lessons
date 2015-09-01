@@ -19,8 +19,11 @@ class UserController < UIViewController
         v.sizeToFit
       end
       self.view.addSubview(value)
-
     end
+
+    @db = NSUserDefaults.standardUserDefaults
+    @db['User'] = {one:1, two:2, three:3}
+    puts @db['User']
   end
 
   def increment_padding

@@ -9,4 +9,18 @@ class User
       end
     end
   end
+
+  def initWithCoder(decoder)
+    self.init
+    ATTRIBUTES.each do |key|
+      self.send("#{key}=", decoder.decodeObjectForKey(key))
+    end
+    self
+  end
+
+  def encodeWithCoder(encoder)
+    ATTRIBUTES.each do |attr|
+      encoder.encodeObject(self.send(attr), forKey: attr.to_s)
+    end
+  end
 end

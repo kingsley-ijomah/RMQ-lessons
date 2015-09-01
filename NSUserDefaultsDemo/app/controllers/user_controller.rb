@@ -22,7 +22,8 @@ class UserController < UIViewController
     end
 
     @db = NSUserDefaults.standardUserDefaults
-    @db['User'] = {one:1, two:2, three:3}
+    @db['User'] = User.new(id:'123', name:'kingsley ijomah', email:'king@example.com')
+ 
     puts @db['User']
   end
 

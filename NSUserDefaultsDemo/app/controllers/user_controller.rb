@@ -21,10 +21,12 @@ class UserController < UIViewController
       self.view.addSubview(value)
     end
 
-    @db = NSUserDefaults.standardUserDefaults
-    @db['User'] = User.new(id:'123', name:'kingsley ijomah', email:'king@example.com')
+    @defaults = NSUserDefaults.standardUserDefaults
+    @user = User.new(id:'123', name:'kingsley ijomah', email:'king@example.com')
+    archived = NSKeyedArchiver.archivedDataWithRootObject(@user)
+    @defaults['saved_user'] = archived
+    
  
-    puts @db['User']
   end
 
   def increment_padding

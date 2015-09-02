@@ -8,15 +8,15 @@ class User
         self.send("#{key}=", value)
       end
     end
+  end
+
+  def self.save(user)
     @defaults = NSUserDefaults.standardUserDefaults
+    @defaults['User'] = NSKeyedArchiver.archivedDataWithRootObject(user)
   end
 
-  def save(user)
-    @defaults['User'] = NSArchiver.archivedDataWithRootObject(user)
-  end
-
-  def find
-    @defaults['User']
+  def self.find
+    NSKeyedUnarchiver.unarchiveObjectWithData(@defaults['User'])
   end
 
   def initWithCoder(decoder)

@@ -8,6 +8,15 @@ class User
         self.send("#{key}=", value)
       end
     end
+    @defaults = NSUserDefaults.standardUserDefaults
+  end
+
+  def save(user)
+    @defaults['User'] = NSArchiver.archivedDataWithRootObject(user)
+  end
+
+  def find
+    @defaults['User']
   end
 
   def initWithCoder(decoder)
@@ -20,7 +29,7 @@ class User
 
   def encodeWithCoder(encoder)
     ATTRIBUTES.each do |attr|
-      encoder.encodeObject(self.send(attr), forKey: attr.to_s)
+      encoder.encodeObject(self.send(attr), forKey: attr)
     end
   end
 end

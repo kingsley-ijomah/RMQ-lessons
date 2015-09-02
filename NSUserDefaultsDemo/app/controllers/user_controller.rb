@@ -24,7 +24,7 @@ class UserController < UIViewController
     @defaults = NSUserDefaults.standardUserDefaults
     @user = User.new(id:'123', name:'kingsley ijomah', email:'king@example.com')
     archived = NSKeyedArchiver.archivedDataWithRootObject(@user)
-    # @defaults['saved_user'] = archived
+    @defaults['saved_user'] = archived
 
     @user =  NSKeyedUnarchiver.unarchiveObjectWithData(@defaults['saved_user'])
     puts @user.inspect

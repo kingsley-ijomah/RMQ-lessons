@@ -4,7 +4,7 @@ class EditUserController < UIViewController
     self.view.BackgroundColor = UIColor.whiteColor
     self.title = "Edit User"
 
-    id_field = UITextField.alloc.init.tap do |f|
+    @id_field = UITextField.alloc.init.tap do |f|
       f.frame = [[20, 100], [335, 35]]
       f.borderStyle = UITextBorderStyleRoundedRect
       f.placeholder = "Enter ID"
@@ -12,7 +12,7 @@ class EditUserController < UIViewController
     end
     self.view.addSubview(id_field)
 
-    name_field  = UITextField.alloc.init.tap do |f|
+    @name_field  = UITextField.alloc.init.tap do |f|
       f.frame = [[20, 150], [335, 35]]
       f.borderStyle = UITextBorderStyleRoundedRect
       f.placeholder = "Enter Full Name"
@@ -20,7 +20,7 @@ class EditUserController < UIViewController
     end
     self.view.addSubview(name_field)
 
-    email_field  = UITextField.alloc.init.tap do |f|
+    @email_field  = UITextField.alloc.init.tap do |f|
       f.frame = [[20, 200], [335, 35]]
       f.borderStyle = UITextBorderStyleRoundedRect
       f.placeholder = "Enter Email Address"
@@ -31,9 +31,15 @@ class EditUserController < UIViewController
     submit_button = UIButton.buttonWithType(UIButtonTypeRoundedRect).tap do |b|
       b.frame = [[20, 250], [335, 35]]
       b.setTitle("Submit Form", forState:UIControlStateNormal)
-      b.addTarget(self, action:"buttonPressed", forControlEvents:UIControlEventTouchDown)
+      b.addTarget(self, action:"submit", forControlEvents:UIControlEventTouchDown)
     end
     self.view.addSubview(submit_button)
+  end
+
+  def submit
+    puts @id_field.text
+    puts @name_field.text
+    puts @email_fiel.text
   end
 
 end

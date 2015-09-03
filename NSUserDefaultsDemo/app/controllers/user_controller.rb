@@ -22,16 +22,13 @@ class UserController < UIViewController
     end
 
     self.navigationItem.tap do |nav|
-      nav.leftBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemRefresh, target: self, action: 'show_details')
-      nav.rightBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemAdd, target: self, action: 'show_add_form')
+      nav.rightBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemEdit, target: self, action: 'edit_form')
     end
     # User.write(self.user)        
   end
 
-  def show_details
-  end
-
-  def show_add_form
+  def edit_form
+    self.navigationController.pushViewController(EditUserController.alloc.init, animated:true)
   end
 
   def increment_padding

@@ -10,15 +10,6 @@ class User
     end
   end
 
-  def self.save(user)
-    @defaults = NSUserDefaults.standardUserDefaults
-    @defaults['User'] = NSKeyedArchiver.archivedDataWithRootObject(user)
-  end
-
-  def self.find
-    NSKeyedUnarchiver.unarchiveObjectWithData(@defaults['User'])
-  end
-
   def initWithCoder(decoder)
     self.init
     ATTRIBUTES.each do |key|
@@ -30,6 +21,20 @@ class User
   def encodeWithCoder(encoder)
     ATTRIBUTES.each do |attr|
       encoder.encodeObject(self.send(attr), forKey: attr)
+    end
+  end
+
+  class << self 
+    def defaults
+      NSUserDefaults.standardUserDefaults
+    end
+
+    def write(user)
+      defaults['User'] = NSKeyedArchiver.archivedDataWithRootObject(user)
+    end
+
+    def read
+      NSKeyedUnarchiver.unarchiveObjectWithData(defaults['User'])
     end
   end
 end

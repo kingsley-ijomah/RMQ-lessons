@@ -21,10 +21,17 @@ class UserController < UIViewController
       self.view.addSubview(value)
     end
 
-    User.save(self.user)        
-    puts User.find.inspect
-    
- 
+    self.navigationItem.tap do |nav|
+      nav.leftBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemRefresh, target: self, action: 'show_details')
+      nav.rightBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemAdd, target: self, action: 'show_add_form')
+    end
+    # User.write(self.user)        
+  end
+
+  def show_details
+  end
+
+  def show_add_form
   end
 
   def increment_padding

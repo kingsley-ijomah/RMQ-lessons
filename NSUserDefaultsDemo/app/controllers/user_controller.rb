@@ -1,6 +1,14 @@
 class UserController < UIViewController
   attr_accessor :user
 
+  def init
+    if super
+      self.user = User.read
+      self.edgesForExtendedLayout = UIRectEdgeNone
+    end
+    self
+  end
+
   def viewDidLoad
     super
 
@@ -12,7 +20,7 @@ class UserController < UIViewController
         l.sizeToFit
       end
       self.view.addSubview(label)
-      
+
       value = UILabel.alloc.initWithFrame(CGRectZero).tap do |v|
         v.frame = [[label.frame.origin.x + label.frame.size.width + 10, label.frame.origin.y], v.frame.size]
         v.text = self.user.send(attr)
@@ -37,7 +45,6 @@ class UserController < UIViewController
   def initWithUser(user)
     self.init
     self.user = user
-    self.edgesForExtendedLayout = UIRectEdgeNone
     self
   end
 end

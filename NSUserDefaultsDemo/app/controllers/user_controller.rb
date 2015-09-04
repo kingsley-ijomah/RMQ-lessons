@@ -41,10 +41,4 @@ class UserController < UIViewController
   def increment_padding
     @padding += 35
   end
-
-  def initWithUser(user)
-    self.init
-    self.user = user
-    self
-  end
 end

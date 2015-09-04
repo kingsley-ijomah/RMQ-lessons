@@ -24,7 +24,6 @@ class UserController < UIViewController
     self.navigationItem.tap do |nav|
       nav.rightBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemEdit, target: self, action: 'edit_form')
     end
-    # User.write(self.user)        
   end
 
   def edit_form

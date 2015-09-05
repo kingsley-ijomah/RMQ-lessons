@@ -12,7 +12,15 @@ class UserController < UIViewController
   def viewDidLoad
     super
 
+    self.navigationItem.tap do |nav|
+      nav.rightBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemEdit, target: self, action: 'edit_form')
+    end
+  end
+
+  def viewDidAppear(animated)
+    self.user = User.read
     @padding = 0
+
     User::ATTRIBUTES.each do |attr|
       label = UILabel.alloc.initWithFrame(CGRectZero).tap do |l|
         l.frame = [[10, increment_padding], l.frame.size]
@@ -28,15 +36,6 @@ class UserController < UIViewController
       end
       self.view.addSubview(value)
     end
-
-    self.navigationItem.tap do |nav|
-      nav.rightBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemEdit, target: self, action: 'edit_form')
-    end
-  end
-
-  def viewDidAppear(animated)
-    user = User.read
-
   end
 
   def edit_form

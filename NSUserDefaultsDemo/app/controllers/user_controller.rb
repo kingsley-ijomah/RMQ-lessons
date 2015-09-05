@@ -34,6 +34,11 @@ class UserController < UIViewController
     end
   end
 
+  def viewDidAppear(animated)
+    user = User.read
+
+  end
+
   def edit_form
     self.navigationController.pushViewController(EditUserController.alloc.init, animated:true)
   end
